@@ -1,0 +1,19 @@
+# Ganti dengan path gambar Anda
+img_pepaya = imageio.imread('daun_pepaya.jpg')
+img_singkong = imageio.imread('daun_singkong.jpg')
+img_kenikir = imageio.imread('daun_kenikir.jpg')
+
+def tampilkan_channel_merah(img, judul):
+  plt.imshow(img[:, :, 0], cmap='gray')
+  plt.title(judul)
+  plt.axis('off')
+  plt.show()
+
+# Menampilkan channel merah daun pepaya
+tampilkan_channel_merah(img_pepaya, "Channel Merah Daun Pepaya")
+
+# Menampilkan channel merah daun singkong
+tampilkan_channel_merah(img_singkong, "Channel Merah Daun Singkong")
+
+# Menampilkan channel merah daun kenikir
+tampilkan_channel_merah(img_kenikir, "Channel Merah Daun Kenikir")
