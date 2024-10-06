@@ -1,0 +1,38 @@
+import numpy as np
+import imageio
+import matplotlib.pyplot as plt
+
+def binerisasi(img, threshold):
+  """Mengkonversi citra grayscale menjadi citra biner.
+
+  Args:
+    img: Citra grayscale sebagai array NumPy.
+    threshold: Nilai ambang batas.
+
+  Returns:
+    Citra biner sebagai array NumPy.
+  """
+
+  # Membuat salinan array untuk menghindari modifikasi in-place
+  img_biner = img.copy()
+
+  # Melakukan thresholding
+  img_biner[img_biner >= threshold] = 255
+  img_biner[img_biner < threshold] = 0
+
+  return img_biner
+
+# Membaca gambar grayscale
+img = imageio.imread('gambar_grayscale.jpg')
+
+# Menentukan nilai threshold (contoh: 128)
+threshold = 128
+
+# Melakukan binarisasi
+img_biner = binerisasi(img, threshold)
+
+# Menampilkan gambar biner
+plt.imshow(img_biner, cmap='gray')
+plt.title('Citra Biner')
+plt.axis('off')
+plt.show()
