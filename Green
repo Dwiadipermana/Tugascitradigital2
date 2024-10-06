@@ -1,0 +1,26 @@
+import numpy as np
+import imageio
+import matplotlib.pyplot as plt
+
+def display_green_channel(img, title):
+    """Displays the green channel of an image.
+
+    Args:
+        img: The input image as a NumPy array.
+        title: The title for the plot.
+    """
+
+    plt.imshow(img[:, :, 1], cmap='gray')
+    plt.title(title)
+    plt.axis('off')
+    plt.show()
+
+# Replace with the paths to your image files
+img_pepaya = imageio.imread('daun_pepaya.jpg')
+img_singkong = imageio.imread('daun_singkong.jpg')
+img_kenikir = imageio.imread('daun_kenikir.jpg')
+
+# Display the green channel for each image
+display_green_channel(img_pepaya, "Green Channel of Pepaya Leaf")
+display_green_channel(img_singkong, "Green Channel of Cassava Leaf")
+display_green_channel(img_kenikir, "Green Channel of Kenikir Leaf")
