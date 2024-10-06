@@ -1,0 +1,27 @@
+import numpy as np
+import imageio
+import matplotlib.pyplot as plt
+
+def grayscale(img):
+  """Mengkonversi gambar berwarna menjadi grayscale.
+
+  Args:
+    img: Gambar input sebagai array NumPy.
+
+  Returns:
+    Gambar grayscale sebagai array NumPy.
+  """
+
+  return np.dot(img[...,:3], [0.299, 0.587, 0.114]).astype(np.uint8)
+
+# Membaca gambar
+img = imageio.imread('gambar_anda.jpg')
+
+# Mengkonversi ke grayscale
+gray_img = grayscale(img)
+
+# Menampilkan gambar grayscale
+plt.imshow(gray_img, cmap='gray')
+plt.title('Gambar Grayscale')
+plt.axis('off')
+plt.show()
